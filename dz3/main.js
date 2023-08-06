@@ -1,9 +1,11 @@
 /*--------------------- 1 TASK-------------------*/
-let line1 = window.prompt("Type your name:");
-let line2 = window.prompt("Type your surname:");
-let line3 = window.prompt("Type your age:");
+let name = window.prompt("Type your name:");
+let surname = window.prompt("Type your surname:");
+let age = window.prompt("Type your age:");
 
-document.write("Your name is " + line1, ", Your second name is " + line2, ", and your age is " + line3,"! ");
+alert(`Your name is: ${name},\n
+Your second name is: ${surname},\n
+and your age is: ${age}!`);
 
 
 /*--------------------- 2 TASK-------------------*/
@@ -15,5 +17,5 @@ if (number.length !== 5) {
     alert("Its more then 5. Try again")
 }else{
     let numbers = number.split("").join(" ");
-    document.write("Your five-digit number is: " + numbers)
+    alert("Your five-digit number is: " + numbers)
 }
