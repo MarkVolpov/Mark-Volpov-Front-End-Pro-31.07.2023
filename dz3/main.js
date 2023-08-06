@@ -1,7 +1,7 @@
 /*--------------------- 1 TASK-------------------*/
-let name = window.prompt("Type your name:");
-let surname = window.prompt("Type your surname:");
-let age = window.prompt("Type your age:");
+const name = window.prompt("Type your name:");
+const surname = window.prompt("Type your surname:");
+const age = window.prompt("Type your age:");
 
 alert(`Your name is: ${name},\n
 Your second name is: ${surname},\n
@@ -10,7 +10,7 @@ and your age is: ${age}!`);
 
 /*--------------------- 2 TASK-------------------*/
 
-let number = window.prompt("Enter a five-digit number:");
+const number = window.prompt("Enter a five-digit number:");
 
 
 if (number.length !== 5) {
