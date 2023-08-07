@@ -1,6 +1,6 @@
 const operator = prompt('Type your operator(add, sub, mult, div)')
-const firstNumber = prompt('Type ur first number')
-const secondNumber = prompt('Type ur second number')
+const firstNumber = parseFloat(prompt('Type your first number'));
+const secondNumber = parseFloat(prompt('Type your second number'));
 
 let result
 
