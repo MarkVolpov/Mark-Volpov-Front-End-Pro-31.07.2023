@@ -1,22 +1,22 @@
-const operator = prompt('Type your operator(add, sub, mult, div)')
+const operator = prompt('Type your operator(add, sub, mult, div)')  // ------------- >if operatorts are "+" "-" "*" "/" not add,sub,mult,div
 const firstNumber = parseFloat(prompt('Type your first number'));
 const secondNumber = parseFloat(prompt('Type your second number'));
 
 let result = ''
-let operatorValue = ''
+let operatorValue = '' // ------------- >  we dont need this
 
-if (operator === 'add'){
+if (operator === 'add'){          // ------------- > here "+" replaced "add"
    result = (firstNumber + secondNumber),
-   operatorValue = ' + ';
-}else if(operator === 'sub'){
+   operatorValue = ' + '; // ------------- >  we dont need this
+}else if(operator === 'sub'){ // ------------- > here "-" replaced "sub"
    result =  (firstNumber - secondNumber),
-    operatorValue = ' - ';
-}else if(operator === 'mult'){
+    operatorValue = ' - '; // ------------- > we dont need this
+}else if(operator === 'mult'){ // ------------- > here "*" replaced "mult"
    result = (firstNumber * secondNumber),
-   operatorValue = ' * ';
-}else if(operator === 'div'){
+   operatorValue = ' * '; // ------------- > we dont need this
+}else if(operator === 'div'){ // ------------- > here "/" replaced "div"
    result = (firstNumber / secondNumber),
-   operatorValue = ' / ';
+   operatorValue = ' / '; // ------------- > we dont need this
 }else {
    alert('Invalid operator');
 }
@@ -24,6 +24,6 @@ if (operator === 'add'){
 if (isNaN(firstNumber) && isNaN(secondNumber)) {
    alert('Type a valid number');
 } else {
-   alert(`${firstNumber}${operatorValue}${secondNumber} = ${result}`);
+   alert(`${firstNumber}${operatorValue}${secondNumber} = ${result}`); // here "operatorValue" we are changing to "operator" and alse we can add Math.round before "result" for both variants
 }
 
