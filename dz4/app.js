@@ -5,18 +5,18 @@ const secondNumber = parseFloat(prompt('Type your second number'));
 let result = ''
 let operatorValue = '' // ------------- >  we dont need this
 
-if (operator === 'add'){          // ------------- > here "+" replaced "add"
+if (operator === 'add'){    // ------------- > here "+" replaces "add"
    result = (firstNumber + secondNumber),
-   operatorValue = ' + '; // ------------- >  we dont need this
-}else if(operator === 'sub'){ // ------------- > here "-" replaced "sub"
+   operatorValue = ' + ';   // ------------- >  we dont need this
+}else if(operator === 'sub'){    // ------------- > here "-" replaces "sub"
    result =  (firstNumber - secondNumber),
-    operatorValue = ' - '; // ------------- > we dont need this
-}else if(operator === 'mult'){ // ------------- > here "*" replaced "mult"
+    operatorValue = ' - ';    // ------------- > we dont need this
+}else if(operator === 'mult'){    // ------------- > here "*" replaces "mult"
    result = (firstNumber * secondNumber),
-   operatorValue = ' * '; // ------------- > we dont need this
-}else if(operator === 'div'){ // ------------- > here "/" replaced "div"
+   operatorValue = ' * ';    // ------------- > we dont need this
+}else if(operator === 'div'){    // ------------- > here "/" replaces "div"
    result = (firstNumber / secondNumber),
-   operatorValue = ' / '; // ------------- > we dont need this
+   operatorValue = ' / ';    // ------------- > we dont need this
 }else {
    alert('Invalid operator');
 }
