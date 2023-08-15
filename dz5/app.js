@@ -30,32 +30,30 @@ if (userAge && userCity && userFavSport) {
         case "football":
             favSport = "Great choise! You wanna be as Cristiano Ronaldo?";
             break;
-            case "Football":
-                favSport = "Great choise! You wanna be as Cristiano Ronaldo?";
-                break;
-                case "boxing":
-                    favSport = "Great choise! You wanna be as Floyd Mayweather Jr. ?";
-                    break;
-                    case "Boxing":
-                        favSport = "Great choise! You wanna be as Floyd Mayweather Jr. ?";
-                        break;
-                        case "formula one":
-                            favSport = "Great choise! You want to be as Michael Schumacher ? ";
-                            break;
-                            case "formula 1":
-                                favSport = "Great choise! You want to be as Michael Schumacher ? ";
-                                break;
-                                case "Formula one":
-                                    favSport = "Great choise! You want to be as Michael Schumacher ? ";
-                                    break;
-                                    case "Formula 1":
-                                        favSport = "Great choise! You want to be as Michael Schumacher ? ";
-                                        break;
-                                        
-                                        
-                                        default:
-                                            favSport = ("Good sport choise");
-                                        };
+        case "Football":
+            favSport = "Great choise! You wanna be as Cristiano Ronaldo?";
+            break;
+        case "boxing":
+            favSport = "Great choise! You wanna be as Floyd Mayweather Jr. ?";
+            break;
+        case "Boxing":
+            favSport = "Great choise! You wanna be as Floyd Mayweather Jr. ?";
+            break;
+        case "formula one":
+            favSport = "Great choise! You want to be as Michael Schumacher ? ";
+            break;
+        case "formula 1":
+            favSport = "Great choise! You want to be as Michael Schumacher ? ";
+            break;
+        case "Formula one":
+            favSport = "Great choise! You want to be as Michael Schumacher ? ";
+            break;
+        case "Formula 1":
+            favSport = "Great choise! You want to be as Michael Schumacher ? ";
+            break;
+        default:
+            favSport = ("Good sport choise");
+        };
                                         
                                     
     alert(`Your age is ${age}, \n${city}, \n${favSport}`);
