@@ -23,6 +23,7 @@ if (userAge && userCity && userFavSport) {
     
     
     
+    
     let favSport = ""; 
     
     switch (userFavSport) {
