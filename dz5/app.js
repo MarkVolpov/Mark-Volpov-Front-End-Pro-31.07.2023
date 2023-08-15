@@ -8,17 +8,17 @@ const userFavSport = prompt(' What’s your favorite sport');
 if (userAge && userCity && userFavSport) {
     
     
-    let age = 2023 - userAge;
+    let age = new Date().getFullYear() - userAge; // new Date().getFullYear() - userAge;
     let city = "";
     
     if(userCity == "Kiev" || userCity == "Kyiv"){
-        city = "U live in the capital of Ukraine!"
+        city = "You live in the capital of Ukraine!"
     }else if(userCity == "Washington"){
-        city = "U live in the capital of USA!"
+        city = "You live in the capital of USA!"
     }else if(userCity == "London"){
-        city = "U live in the capital of Great Britain!"
+        city = "You live in the capital of Great Britain!"
     }else{
-        city = "U live in " + userCity
+        city = "You live in " + userCity
     };
     
     
@@ -67,11 +67,11 @@ if (userAge && userCity && userFavSport) {
 }else{
                                         
 if(userAge == null){
-    alert("Thats bad that u canceled your age input")
+    alert("It is a pity that you cancelled your age input")
         }else if(userCity == null){
-            alert("Thats bad that u canceled your city choise") 
+            alert("It is a pity that you cancelled your city choise") 
         }else if(userFavSport == null){
-            alert("Thats bad that u canceled your sport choise")
+            alert("It is a pity that you cancelled your sport choise")
         };
 
 };
