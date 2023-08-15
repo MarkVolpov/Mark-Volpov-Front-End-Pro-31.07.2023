@@ -8,7 +8,7 @@ const userFavSport = prompt(' What’s your favorite sport');
 if (userAge && userCity && userFavSport) {
     
     
-    let age = new Date().getFullYear() - userAge; // new Date().getFullYear() - userAge;
+    let age = new Date().getFullYear() - userAge; // 2023 - userAge;
     let city = "";
     
     if(userCity == "Kiev" || userCity == "Kyiv"){
