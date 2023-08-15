@@ -26,4 +26,4 @@ if (isNaN(firstNumber) && isNaN(secondNumber)) {
 } else {
    alert(`${firstNumber}${operatorValue}${secondNumber} = ${result}`); // here "operatorValue" we are changing to "operator" and alse we can add Math.round before "result" for both variants
 }
-fg
+
