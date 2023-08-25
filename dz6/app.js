@@ -56,7 +56,7 @@ let numAddPair = 0
 
 // 8 Вивести всі числа в діапазоні від 100 до 200 кратні 3.
   for(let i = 102; i <= 200; i += 3) {
-    //console.log(i)
+    //console.log(i)   
 }
 
 // 9 Дано натуральне число. Знайти та вивести на сторінку всі його дільники. 
@@ -64,21 +64,30 @@ let numAddPair = 0
 // 11 Знайти суму його парних дільників.
 
 let natNumber = 100;
+let natNumbersDiv = [];
+
 
   for(let i = 1; i <= natNumber; i++) {
      if(natNumber % i === 0) {
+      natNumbersDiv.push(i)
       //console.log(i)
   }
 }
 
 let natNumberQuantity = 0
- 
-for(let i = 0; i <= natNumber; i += 2) {
-  if(natNumber % i === 0) {
-    natNumberQuantity++
+let sumOfNatNumberDiv = 0 
+
+
+
+for(const natNumberDiv of natNumbersDiv) {
+  if(natNumberDiv % 2 === 0) {
+    natNumberQuantity++;
+    sumOfNatNumberDiv += natNumberDiv;
   }
 }
-//console.log(natNumberQuantity
+
+//console.log("Quantity:", natNumberQuantity);
+//console.log("Sum of even div. :", sumOfNatNumberDiv);
 
 // 12 Надрукувати повну таблицю множення від 1 до 10.
 
