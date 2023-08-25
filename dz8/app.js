@@ -4,7 +4,7 @@ let userArray = [];
 
 // 2.Відсортувати масив за зростанням.
 for (let i = 0; i < userArrayLength; i++) {
-    var element = parseInt(prompt("Type your element of array's index " + (i + 1) + ":"));
+    let element = parseInt(prompt(`Type your element of array's index " ${(i + 1)} :`));
     userArray.push(element);
 }
 userArray.sort(function(a, b) {
