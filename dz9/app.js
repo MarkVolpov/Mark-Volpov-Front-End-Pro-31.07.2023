@@ -22,18 +22,18 @@ console.log(negatives);
 
 
 // 5.Знайти кількість непарних позитивних елементів.
-function sumOfNonPairPosNumbers(array) {
+
     
-    let nonPair = [];
+let nonPair = [];
     
     for (let i = 0; i < array.length; i++) {
         if (array[i] > 0 && array[i] % 2 !== 0) {
             nonPair.push(array[i]);
         }
     }
-    return nonPair;
-}
-console.log(sumOfNonPairPosNumbers(array));
+    
+
+console.log(nonPair);
 
 
 // 6.Знайти кількість парних позитивних елементів.
