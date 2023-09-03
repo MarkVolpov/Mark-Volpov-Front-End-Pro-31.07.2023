@@ -1,22 +1,22 @@
-const operator = prompt('Type your operator(add, sub, mult, div)')  // ------------- >if operators are "+" "-" "*" "/" not add,sub,mult,div
+const operator = prompt('Type your operator(add, sub, mult, div)')  
 const firstNumber = parseFloat(prompt('Type your first number'));
 const secondNumber = parseFloat(prompt('Type your second number'));
 
 let result = ''
-let operatorValue = '' // ------------- >  we dont need this
+let operatorValue = '' 
 
-if (operator === 'add'){    // ------------- > here "+" replaces "add"
+if (operator === 'add') {    
    result = (firstNumber + secondNumber),
-   operatorValue = ' + ';   // ------------- >  we dont need this
-}else if(operator === 'sub'){    // ------------- > here "-" replaces "sub"
+   operatorValue = ' + ';   
+}else if(operator === 'sub') {   
    result =  (firstNumber - secondNumber),
-    operatorValue = ' - ';    // ------------- > we dont need this
-}else if(operator === 'mult'){    // ------------- > here "*" replaces "mult"
+    operatorValue = ' - ';   
+}else if(operator === 'mult') {    
    result = (firstNumber * secondNumber),
-   operatorValue = ' * ';    // ------------- > we dont need this
-}else if(operator === 'div'){    // ------------- > here "/" replaces "div"
+   operatorValue = ' * ';    
+}else if(operator === 'div') {    
    result = (firstNumber / secondNumber),
-   operatorValue = ' / ';    // ------------- > we dont need this
+   operatorValue = ' / ';   
 }else {
    alert('Invalid operator');
 }
