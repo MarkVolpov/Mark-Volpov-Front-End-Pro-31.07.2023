@@ -13,10 +13,10 @@ function sum() {
    
   let number = 0;
   
-  return function(a){
+  return function(a) {
 
-      number += a
-      return number
+      number += a;
+      return number;
 
   }
 }

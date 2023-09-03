@@ -1,6 +1,18 @@
 // 1.Дан масив [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47] Знайти суму та кількість позитивних елементів.
 let array = [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
 
+let sumOfPosNums = 0;
+let posNumsQuantity = 0;
+
+for(const num of array){
+    if(num > 0) {
+        sumOfPosNums += num;
+        posNumsQuantity++;
+    }
+}
+console.log("Sum: " + sumOfPosNums, "posNums: " + posNumsQuantity)
+
+
 // 2.Знайти мінімальний елемент масиву та його порядковий номер.
 let arrayMin = Math.min(...array)
 console.log(`Min number: ${arrayMin} , Index: ${array.indexOf(arrayMin)}`)
