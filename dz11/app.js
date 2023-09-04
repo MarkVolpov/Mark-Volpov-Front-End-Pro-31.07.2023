@@ -9,21 +9,29 @@
 
 
 
-function sum() { 
+// function sum() { 
    
-  let number = 0;
+//   let number = 0;
   
-  return function(a) {
+//   return function(a) {
 
-      number += a;
+//       number += a;
+//       return number;
+
+//   }
+// }
+
+const sum = (() => {
+  let number = 0;
+  return (n) => {
+      number += n;
       return number;
-
   }
-}
-
-let sumTotal = sum();
+})();
 
 
-console.log(sumTotal(3))
-console.log(sumTotal(5))
-console.log(sumTotal(20))
+
+
+console.log(sum(3))
+console.log(sum(5))
+console.log(sum(20))
