@@ -10,9 +10,12 @@ function powRec(num, degree) {
      if(degree == 1) {
           return num;
      }else{
+          
           return num * powRec(num,degree - 1)
      }
      
 }
 
 console.log(powRec(3,3))
+
+
