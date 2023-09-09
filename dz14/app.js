@@ -30,7 +30,6 @@ class Student {
       if (vis) {
         visitCounter++;
       }
-      console.log(vis);
     }
 
     let visitRatio = visitCounter / this.visit.length;
@@ -43,7 +42,7 @@ class Student {
     } else {
       alert("Редиска!");
     }
-    return [midValue, visitRatio];
+    return [`Середня оцінка: ${midValue}, Відвідування: ${visitRatio}`];
   }
 }
 
@@ -60,28 +59,19 @@ let person3 = new Student(
   1999,
   [100, 100, 100, 55, 89, 89, 100]
 );
+person.absent();
+person.absent();
+person.absent();
+person.absent();
+console.log(person.studentYear(), person.visit, person.summary());
 
-console.log(
-  person.absent(),
-  person.absent(),
-  person.absent(),
-  person.absent(),
-  person.visit,
-  person.summary()
-);
-console.log(
-  person2.present(),
-  person2.absent(),
-  person2.absent(),
-  person2.present(),
-  person2.visit,
-  person2.summary()
-);
-console.log(
-  person3.absent(),
-  person3.present(),
-  person3.present(),
-  person3.absent(),
-  person3.visit,
-  person3.summary()
-);
+person2.absent();
+person2.absent();
+person2.present();
+console.log(person.studentYear(), person2.visit, person2.summary());
+
+person3.absent();
+person3.present();
+person3.present();
+person3.absent();
+console.log(person3.studentYear(), person3.visit, person3.summary());
