@@ -4,45 +4,49 @@ class Student {
     this.name = name;
     this.surname = surname;
     this.birthyear = birthyear;
-    this.visit = new Array(25).fill(undefined);
+    this.presence = new Array(25).fill(undefined);
     this.grades = grades;
   }
 
-  studentYear() {
+  getStudentAge() {
     return new Date().getFullYear() - this.birthyear;
   }
   present() {
-    this.visit.pop(undefined);
-    this.visit.unshift(true);
+    this.presence.pop();
+    this.presence.unshift(true);
   }
   absent() {
-    this.visit.pop(undefined);
-    this.visit.unshift(false);
+    this.presence.pop();
+    this.presence.unshift(false);
   }
   summary() {
-    let sum = 0;
-    let visitCounter = 0;
+    // let sum = 0;
+    // let presenceCounter = 0;
 
-    for (let j = 0; j < this.grades.length; j++) {
-      sum += this.grades[j];
-    }
-    for (const vis of this.visit) {
-      if (vis) {
-        visitCounter++;
-      }
-    }
+    // for (let j = 0; j < this.grades.length; j++) {
+    //   sum += this.grades[j];
+    // }
+    // for (const vis of this.presence) {
+    //   if (vis) {
+    //     presenceCounter++;
+    //   }
+    // }
 
-    let visitRatio = visitCounter / this.visit.length;
-    let midValue = sum / this.grades.length;
+    // let presenceRatio = presenceCounter / this.presence.length;
+    // let midValue = sum / this.grades.length;
 
-    if (sum > 90 && visitRatio > 0.9) {
-      alert("Молодець!");
-    } else if (sum < 90 || visitRatio < 0.9) {
-      alert("Добре, але можна краще");
+    const sum = this.grades.reduce((sum, grade) => sum + grade);
+    const averageGrade = sum / this.grades.length;
+    const presenceRatio = this.presence.filter(el => el === true).length / 25;
+    
+    if (sum > 90 && presenceRatio > 0.9) {
+      alert(`Середня оцінка: ${averageGrade}, Відвідування: ${presenceRatio} Молодець!`);
+    } else if (sum < 90 || presenceRatio < 0.9) {
+      alert(`Середня оцінка: ${averageGrade}, Відвідування: ${presenceRatio}. Добре, але можна краще.`);
     } else {
       alert("Редиска!");
     }
-    return [`Середня оцінка: ${midValue}, Відвідування: ${visitRatio}`];
+    // return [`Середня оцінка: ${averageGrade}, Відвідування: ${presenceRatio}`];
   }
 }
 
@@ -52,26 +56,30 @@ let person = new Student(
   1988,
   [100, 100, 60, 60, 100, 70, 80, 90, 90, 90]
 );
-let person2 = new Student("Alex", "Blue", 1999, [90, 95, 100, 75, 87, 90, 100]);
+let person2 = new Student(
+  "Alex",
+  "Blue", 
+  1999, 
+  [90, 95, 100, 75, 87, 90, 100]);
 let person3 = new Student(
   "Andrew",
   "White",
   1999,
   [100, 100, 100, 55, 89, 89, 100]
 );
-person.absent();
-person.absent();
-person.absent();
-person.absent();
-console.log(person.studentYear(), person.visit, person.summary());
+  person.absent()
+  person.absent()
+  person.absent()
+  person.absent()
+  console.log(person.getStudentAge(), person.presence, person.summary());
 
-person2.absent();
-person2.absent();
-person2.present();
-console.log(person.studentYear(), person2.visit, person2.summary());
+  person2.absent()
+  person2.absent()
+  person2.present()
+  console.log(person.getStudentAge(), person2.presence, person2.summary());
 
-person3.absent();
-person3.present();
-person3.present();
-person3.absent();
-console.log(person3.studentYear(), person3.visit, person3.summary());
+  person3.absent()
+  person3.present()
+  person3.present()
+  person3.absent()
+  console.log(person3.getStudentAge(), person3.presence, person3.summary());
