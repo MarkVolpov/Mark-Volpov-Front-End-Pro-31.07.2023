@@ -1,31 +1,27 @@
-class FirstArray {
+class myArray {
   constructor(name, lastname) {
     this.name = name;
     this.lastname = lastname;
   }
 
-  // getArrNames() {
-  //   return this.name + " " + this.lastname;
-  // }
+  getArrNames() {
+    return this.name + ' ' + this.lastname;
+  }
 }
 
-const newArray = new FirstArray("Bob", "Jane");
-console.log(newArray);
-
-class SuperArray extends Array {
+class SuperArray extends myArray {
   constructor(...elements) {
     super(...elements);
   }
 
+ 
   sum() {
     let sumNum = 0;
-
-    for (const el of this) {
-      if (typeof el == 'number') {
-        sumNum += el;
-        
-      } else {
+    for (const el of Object.values(this)) {
+      if (typeof el !== 'number') {
         throw new TypeError(`${el} is not a number`);
+      } else {
+        sumNum += el;
       }
     }
     return sumNum;
@@ -33,7 +29,7 @@ class SuperArray extends Array {
 }
 
 const names = new SuperArray("Jane", "Bob");
-console.log(names);
+console.log(names.getArrNames()); // "Jane Bob"
 
 const nums = new SuperArray(23, 51, 5);
 const total = nums.sum();
