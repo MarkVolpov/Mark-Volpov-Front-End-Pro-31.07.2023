@@ -71,6 +71,12 @@ let person3 = new Student(
   person.absent()
   person.absent()
   person.absent()
+  person.absent()
+  person.absent()
+  person.present()
+  person.present()
+  
+  
   console.log(person.getStudentAge(), person.presence, person.summary());
 
   person2.absent()
