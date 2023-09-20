@@ -52,3 +52,5 @@ for(let i = 1; i <= numPow; i++ ) {
     }
 }
 //console.log(resultPow)
+
+

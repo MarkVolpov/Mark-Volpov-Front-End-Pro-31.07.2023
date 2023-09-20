@@ -19,3 +19,4 @@ function powRec(num, degree) {
 console.log(powRec(3,3))
 
 
+module.exports = powRec
