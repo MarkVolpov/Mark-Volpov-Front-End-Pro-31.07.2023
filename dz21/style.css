@@ -44,8 +44,9 @@ body {
     height: 33px;
 }
 
-.previous-btn {
+.prev-btn {
     left: 10px;
+    visibility: hidden;
 }
 
 .next-btn {
