@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    margin-top: 200px;
+}
+
+.dz_form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+.table {
+    visibility: hidden;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
