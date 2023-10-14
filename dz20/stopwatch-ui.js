@@ -3,10 +3,10 @@ export default class StopwatchUI {
     this.initialTime = initialTime;
     this.stopwatch = null;
     this.createUI();
+    this.setTime(initialTime);
   }
 
   createUI() {
-    // Створюємо DOM елементи
     this.stopwatchElement = document.createElement('div');
     this.startBtn = document.createElement('button');
     this.startBtn.textContent = 'Start';
@@ -15,27 +15,12 @@ export default class StopwatchUI {
     this.resetBtn = document.createElement('button');
     this.resetBtn.textContent = 'Reset';
 
-    // Додаємо обробники подій для кнопок
-    this.startBtn.addEventListener('click', () => {
-      if (this.stopwatch) {
-        this.stopwatch.start();
-      }
-    });
+   
+    this.stopwatch = document.createElement('div');
+    this.stopwatch.id = 'stopwatch';
 
-    this.pauseBtn.addEventListener('click', () => {
-      if (this.stopwatch) {
-        this.stopwatch.pause();
-      }
-    });
+    this.stopwatchElement.append(this.stopwatch);
 
-    this.resetBtn.addEventListener('click', () => {
-      if (this.stopwatch) {
-        this.stopwatch.reset();
-        this.setTime(this.initialTime);
-      }
-    });
-
-    // Додаємо елементи до DOM
     this.stopwatchElement.appendChild(this.startBtn);
     this.stopwatchElement.appendChild(this.pauseBtn);
     this.stopwatchElement.appendChild(this.resetBtn);
@@ -50,18 +35,20 @@ export default class StopwatchUI {
   }
 
   addResetBtnListener(callback) {
-    this.resetBtn.addEventListener('click', callback);
+    this.resetBtn.addEventListener('click', e => {
+      this.setTime({hours: 0, minutes: 0, seconds: 0}),
+      callback()
+    })
   }
 
   appendStopwatch(parentElement) {
-    parentElement.appendChild(this.stopwatchElement);
+    
+    parentElement.append(this.stopwatchElement);
   }
 
   setTime(time) {
-    if (!this.stopwatch) {
-      this.stopwatch = new Stopwatch(() => {});
-    }
-    this.stopwatch.time = time;
-    this.stopwatch.callback(time);
+ 
+    this.stopwatch.textContent = JSON.stringify(time)
+
   }
 }

@@ -2,80 +2,63 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="dz_form">
-        <form id="myForm" action="/submit" method="POST">
-            <div class="form-group">
-                <label for="username"> Your name</label>
-                <input type="text" id="name" name="username" required>
-                <br><br>
-            </div>
-                <div class="form-group">
-                <label for="username">Your lastname</label>
-                <input type="text" id="lastname" name="username" required>
-                <br><br>
-            </div>
-            <div class="form-group">
-                <label>Gender:</label>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</label>
-            </div>
-            <br><br>
-            <div class="form-group">
-                <label>Language u can speak:</label>
-                <input type="checkbox" id="english" name="language" value="english">
-                <label for="english">English</label>
-                <input type="checkbox" id="germany" name="language" value="germany">
-                <label for="germany">Germany</label>
-                <input type="checkbox" id="ukrainian" name="language" value="ukrainian">
-                <label for="ukrainian">Ukrainian</label>
-                <br><br>
-            </div>
-            <div class="form-group">
-                <label for="city">Town you live in</label>
-                <select id="city" name="city" multiple>
-                    <option value="Kyiv">Kyiv</option>
-                    <option value="Odesa">Odesa</option>
-                    <option value="Lviv" selected>Lviv</option>
-                    <option value="Kharkiv">Kharkiv</option>
+  <div class="wrapper">
+    
+    <header class="header">
+      <button id="my-shop">MyShop</button>
+      
+      <div class="basket">
+        <button id="basket">Basket(0)</button>
+      </div>
+    </header>
 
-                </select>
-                <br><br>
-            </div>
-            <div class="form-group">
-                <label for="address">Your address:</label>
-                <textarea id="address" name="address" rows="1" cols="50"></textarea>
-                <br><br>
-
-                <input type="submit" value="Submit" onclick="addToTable(); showTable();">
-            </div>
-        </form>
+    <main class="main">
+    <div class="category">
+      <button id="flowers">Flowers</button>
+      <button id="cars">Cars</button>
+      <button id="pizza">Pizza</button>
     </div>
-    <table class="table" id="myTable">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>lastname</th>
-                <th>Gender</th>
-                <th>Leanguages</th>
-                <th>City</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <script src="app.js"></script>
+      <div class="basket-box">
+        <div class="items">
+        
+        </div>
+      </div>
+    
+    </main>
+    
+    <div class="flowers-box">
+      <div class="flowers-item-1">
+        <img src="img/flower1.jpg" width="200px" height="200px">
+        <p>price 25.99</p>
+        <button id = "buy-flower-1"> buy </button>
+      </div>
+      <div class="flowers-item-2">
+        <img src="img/flower2.jpg" width="200px" height="200px">
+        <p>price 25.99</p>
+        <button id = "buy-flower-2"> buy </button>
+      </div>
+      <div class="flowers-item-3">
+        <img src="img/flower3.jpg" width="200px" height="200px">
+        <p>price 25.99</p>
+        <button id = "buy-flower-3"> buy </button>
+      </div>
+    </div>
+  
+  
+    
+  
+    
+  </div>
+ 
+  <script src="app.js"></script>
 </body>
 
 </html>

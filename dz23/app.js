@@ -1,55 +1,65 @@
-const tableForm = document.querySelector("#myTable");
-const form = document.querySelector("#myForm");
+const basketBtn = document.querySelector("#basket");
+const myShopBtn = document.querySelector("#my-shop");
+const flowersBtn = document.querySelector("#flowers");
+const carsBtn = document.querySelector("#cars");
+const pizzaBtn = document.querySelector("#pizza");
+const flowers = document.querySelector(".flowers-box");
 
-function addToTable(event) {
-  event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const lastName = document.getElementById("lastname").value;
-  const genderMale = document.getElementById("male").checked ? "Male" : "";
-  const genderFemale = document.getElementById("female").checked
-    ? "Female"
-    : "";
-  const city = document.getElementById("city").value;
-  const languageEnglish = document.getElementById("english").checked
-    ? "English"
-    : "";
-  const languageGermany = document.getElementById("germany").checked
-    ? "Germany"
-    : "";
-  const languageUkrainian = document.getElementById("ukrainian").checked
-    ? "Ukrainian"
-    : "";
-  const address = document.getElementById("address").value;
 
-  const newRow = tableForm.insertRow();
+basketBtn.addEventListener("click", (e) => {
+  window.location.hash = "/basket";
+});
+myShopBtn.addEventListener("click", (e) => {
+  window.location.hash = "/";
+});
+flowersBtn.addEventListener("click", (e) => {
+  window.location.hash = "/flowers";
+  if (flowers.style.display === "none" || flowers.style.display === "") {
+    flowers.style.display = "block";
+  } else {
+    flowers.style.display = "none";
+  }
+});
+carsBtn.addEventListener("click", (e) => {
+  window.location.hash = "/cars";
+});
+pizzaBtn.addEventListener("click", (e) => {
+  window.location.hash = "/pizza";
+});
 
-  const nameCell = newRow.insertCell(0);
-  const lastNameCell = newRow.insertCell(1);
-  const genderCell = newRow.insertCell(2);
-  const languagesCell = newRow.insertCell(3);
-  const cityCell = newRow.insertCell(4);
-  const addressCell = newRow.insertCell(5);
+let basket = [];
 
-  nameCell.textContent = name;
-  lastNameCell.textContent = lastName;
-  genderCell.textContent = genderMale || genderFemale;
-  languagesCell.textContent = [
-    languageEnglish,
-    languageGermany,
-    languageUkrainian,
-  ]
-    .filter((lang) => lang)
-    .join(", ");
-  cityCell.textContent = city;
-  addressCell.textContent = address;
+let flowerRose = {
+  category: "Flowers",
+  item: "Rose",
+  price: 25.99,
+};
+let flowerPurple = {
+  category: "Flowers",
+  item: "Purple",
+  price: 25.99,
+};
+let flowerPink = {
+  category: "Flowers",
+  item: "Pink",
+  price: 25.99,
+};
 
-  form.style.display = "none";
-}
+const buyFlower2 = document.querySelector("#buy-flower-2");
+const buyFlower3 = document.querySelector("#buy-flower-3");
+const buyFlower1 = document.querySelector("#buy-flower-1");
 
-function showTable() {
-  tableForm.style.visibility = "visible";
-}
+buyFlower1.addEventListener("click", (e) => {
+  basket.push(flowerRose);
+  basketBtn.innerHTML = `Basket(${basket.length})`;
+});
+buyFlower2.addEventListener("click", (e) => {
+  basket.push(flowerPurple);
+  basketBtn.innerHTML = `Basket(${basket.length})`;
+});
+buyFlower3.addEventListener("click", (e) => {
+  basket.push(flowerPink);
+  basketBtn.innerHTML = `Basket(${basket.length})`;
+});
 
-form.addEventListener("submit", addToTable);
-form.addEventListener("submit", showTable);

@@ -11,4 +11,4 @@ ui.addStartBtnListener(e => stopwatch.start());
 ui.addPauseBtnListener(e => stopwatch.pause());
 ui.addResetBtnListener(e => stopwatch.reset());
 
-ui.appendStopWatch(document.body);
+ui.appendStopwatch(document.body);

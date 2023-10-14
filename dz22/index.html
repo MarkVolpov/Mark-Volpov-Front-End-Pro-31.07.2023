@@ -1,17 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "style.css">
-    <script type = "module" defer src = "index.js"></script>
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 
-    
 </head>
-<body>
-  
 
+<body>
+    <div class="dz_form">
+        <form id="myForm" action="/submit" method="POST">
+            <div class="form-group">
+                <label for="username"> Your name</label>
+                <input type="text" id="name" name="username" required>
+                <br><br>
+            </div>
+                <div class="form-group">
+                <label for="username">Your lastname</label>
+                <input type="text" id="lastname" name="username" required>
+                <br><br>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            <br><br>
+            <div class="form-group">
+                <label>Language u can speak:</label>
+                <input type="checkbox" id="english" name="language" value="english">
+                <label for="english">English</label>
+                <input type="checkbox" id="germany" name="language" value="germany">
+                <label for="germany">Germany</label>
+                <input type="checkbox" id="ukrainian" name="language" value="ukrainian">
+                <label for="ukrainian">Ukrainian</label>
+                <br><br>
+            </div>
+            <div class="form-group">
+                <label for="city">Town you live in</label>
+                <select id="city" name="city" multiple>
+                    <option value="Kyiv">Kyiv</option>
+                    <option value="Odesa">Odesa</option>
+                    <option value="Lviv" selected>Lviv</option>
+                    <option value="Kharkiv">Kharkiv</option>
+
+                </select>
+                <br><br>
+            </div>
+            <div class="form-group">
+                <label for="address">Your address:</label>
+                <textarea id="address" name="address" rows="1" cols="50"></textarea>
+                <br><br>
+
+                <input type="submit" value="Submit" onclick="addToTable(); showTable();">
+            </div>
+        </form>
+    </div>
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>lastname</th>
+                <th>Gender</th>
+                <th>Leanguages</th>
+                <th>City</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="app.js"></script>
 </body>
+
 </html>

@@ -4,30 +4,73 @@
     box-sizing: border-box;
 }
 
-body {
+.wrapper {
+   
+   
+   
+}
 
+.header {
+    background: rgb(20, 156, 156);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+    
+};
+
+#my-shop {
+  
+    border: none;
+    outline: none;
+    background: yellow;
+    width: 100px;
+    height: 30px;
+}
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.category {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     margin-top: 200px;
+    margin-left: 2px;
+    
 }
 
-.dz_form {
-    text-align: center;
-    margin-top: 20px;
+#flowers,
+#cars,
+#pizza {
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    background: rgb(20, 156, 156);
+    color: #ffffff;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+    font-size: 24px;
 }
 
-.form-group {
-    margin: 15px 0;
+.flowers-box {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 500px;
+    
 }
-
-.table {
-    visibility: hidden;
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.table th,
-.table td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+.basket-box {
+   position: relative;
+    width: 400px;
+    height: 600px;
+    background: purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
 }

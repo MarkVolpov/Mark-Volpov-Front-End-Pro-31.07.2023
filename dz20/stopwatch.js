@@ -41,13 +41,5 @@ export default class StopWatch {
     }
   }
   
-const TickTuck = (time) => console.log(time);
-const stopWatch = new StopWatch(TickTuck);
-stopWatch.start();
-  
-
-setTimeout(() => {
-  stopWatch.reset();
-},10000);
 
 
