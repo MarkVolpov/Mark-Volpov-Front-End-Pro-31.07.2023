@@ -15,10 +15,10 @@ myShopBtn.addEventListener("click", (e) => {
 });
 flowersBtn.addEventListener("click", (e) => {
   window.location.hash = "/flowers";
-  if (flowers.style.display === "none" || flowers.style.display === "") {
-    flowers.style.display = "block";
+  if (flowers.style.visibility === "visible") {
+    flowers.style.visibility = "hidden";
   } else {
-    flowers.style.display = "none";
+    flowers.style.visibility = "visible";
   }
 });
 carsBtn.addEventListener("click", (e) => {
@@ -49,17 +49,27 @@ let flowerPink = {
 const buyFlower2 = document.querySelector("#buy-flower-2");
 const buyFlower3 = document.querySelector("#buy-flower-3");
 const buyFlower1 = document.querySelector("#buy-flower-1");
+const basketBox = document.querySelector(".items");
 
 buyFlower1.addEventListener("click", (e) => {
   basket.push(flowerRose);
   basketBtn.innerHTML = `Basket(${basket.length})`;
+  console.log(basket)
 });
 buyFlower2.addEventListener("click", (e) => {
   basket.push(flowerPurple);
   basketBtn.innerHTML = `Basket(${basket.length})`;
+  console.log(basket)
 });
 buyFlower3.addEventListener("click", (e) => {
   basket.push(flowerPink);
   basketBtn.innerHTML = `Basket(${basket.length})`;
+  console.log(basket)
 });
 
+
+for (const basketItem of basket) {
+  const itemDiv = document.createElement("div");
+  itemDiv.textContent = basketItem.item;
+  basketBox.appendChild(itemDiv);
+}
