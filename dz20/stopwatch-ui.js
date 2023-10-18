@@ -18,9 +18,10 @@ export default class StopwatchUI {
    
     this.stopwatch = document.createElement('div');
     this.stopwatch.id = 'stopwatch';
-
+    
+    
     this.stopwatchElement.append(this.stopwatch);
-
+    
     this.stopwatchElement.appendChild(this.startBtn);
     this.stopwatchElement.appendChild(this.pauseBtn);
     this.stopwatchElement.appendChild(this.resetBtn);
@@ -37,6 +38,7 @@ export default class StopwatchUI {
   addResetBtnListener(callback) {
     this.resetBtn.addEventListener('click', e => {
       this.setTime({hours: 0, minutes: 0, seconds: 0}),
+      
       callback()
     })
   }
@@ -48,7 +50,13 @@ export default class StopwatchUI {
 
   setTime(time) {
  
-    this.stopwatch.textContent = JSON.stringify(time)
-
+    const newHours = String(time.hours).padStart(2, '0');
+    const newMinutes = String(time.minutes).padStart(2, '0');
+    const newSeconds = String(time.seconds).padStart(2, '0');
+    
+    const newTime = `${newHours}:${newMinutes}:${newSeconds}`;
+    this.stopwatch.textContent = newTime;
+    
+    
   }
 }

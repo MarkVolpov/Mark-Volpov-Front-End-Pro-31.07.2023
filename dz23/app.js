@@ -49,27 +49,52 @@ let flowerPink = {
 const buyFlower2 = document.querySelector("#buy-flower-2");
 const buyFlower3 = document.querySelector("#buy-flower-3");
 const buyFlower1 = document.querySelector("#buy-flower-1");
-const basketBox = document.querySelector(".items");
+const basketBox = document.getElementsByClassName("items")
+
+
+function saveBasketToLocalStorage() {
+  localStorage.setItem("basket", JSON.stringify(basket));
+};
+
+
+function loadBasketFromLocalStorage() {
+  const savedBasket = localStorage.getItem("basket");
+  if (savedBasket) {
+    basket = JSON.parse(savedBasket);
+    updateBasketCount();
+  }
+};
+
+
+function updateBasketCount() {
+  basketBtn.innerHTML = `Basket(${basket.length})`;
+};
+
 
 buyFlower1.addEventListener("click", (e) => {
   basket.push(flowerRose);
   basketBtn.innerHTML = `Basket(${basket.length})`;
-  console.log(basket)
+  saveBasketToLocalStorage();
+  updateBasketCount();
 });
+
 buyFlower2.addEventListener("click", (e) => {
   basket.push(flowerPurple);
   basketBtn.innerHTML = `Basket(${basket.length})`;
-  console.log(basket)
+  saveBasketToLocalStorage();
+  updateBasketCount();
 });
+
 buyFlower3.addEventListener("click", (e) => {
   basket.push(flowerPink);
   basketBtn.innerHTML = `Basket(${basket.length})`;
-  console.log(basket)
+  saveBasketToLocalStorage();
+  updateBasketCount();
 });
 
 
 for (const basketItem of basket) {
-  const itemDiv = document.createElement("div");
+  const itemDiv = document.querySelector("div");
   itemDiv.textContent = basketItem.item;
-  basketBox.appendChild(itemDiv);
+  basketBox.append(itemDiv);
 }
