@@ -11,49 +11,97 @@
 
 <body>
   <div class="wrapper">
-    
+
     <header class="header">
       <button id="my-shop">MyShop</button>
-      
+
+
       <div class="basket">
         <button id="basket">Basket(0)</button>
       </div>
     </header>
 
+
     <main class="main">
-    <div class="category">
-      <button id="flowers">Flowers</button>
-      <button id="cars">Cars</button>
-      <button id="pizza">Pizza</button>
-    </div>
-      <div class="basket-box">
-        <div class="items">
-        
+      <div class="category">
+        <button id="flowers">Flowers</button>
+        <button id="cars">Cars</button>
+        <button id="pizza">Pizza</button>
+      </div>
+
+      <div class="flowers-main-box">
+        <div class="flowers-box">
+          <div class="flowers-item" data-category="Flowers" data-item="Rose" data-price="25.99">
+            <img src="img/flower1.jpg" width="200px" height="200px">
+            <p>Rose</p>
+            <p>price 19.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+          <div class="flowers-item" data-category="Flowers" data-item="Purple" data-price="25.99">
+            <img src="img/flower2.jpg" width="200px" height="200px">
+            <p>Purple</p>
+            <p>price 19.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+          <div class="flowers-item" data-category="Flowers" data-item="Rose" data-price="25.99">
+            <img src="img/flower3.jpg" width="200px" height="200px">
+            <p>Pink</p>
+            <p>price 19.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
         </div>
       </div>
-    
+      <div class="cars-main-box">
+        <div class="cars-box">
+          <div class="cars-item" data-category="Cars" data-item="Mini" data-price="19999.99">
+            <img src="img/car1.jpg" width="200px" height="200px">
+            <p>Mini</p>
+            <p>price 19999.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+          <div class="cars-item" data-category="Cars" data-item="Rich" data-price="19999.99">
+            <img src="img/car2.jpg" width="200px" height="200px">
+            <p>Rich</p>
+            <p>price 19999.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+          <div class="cars-item" data-category="Cars" data-item="Shkoda" data-price="19999.99">
+            <img src="img/car3.jpg" width="200px" height="200px">
+            <p>Shkoda</p>
+            <p>price 19999.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+        </div>
+      </div>
+      <div class="pizza-main-box">
+        <div class="pizza-box">
+          <div class="pizza-item" data-category="Pizza" data-item="Chelentano" data-price="5.99">
+            <img src="img/pizza1.jpg" width="200px" height="200px">
+            <p>Chelentano</p>
+            <p>price 5.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+          <div class="pizza-item" data-category="Pizza" data-item="Ananas" data-price="5.99">
+            <img src="img/pizza2.jpg" width="200px" height="200px">
+            <p>Ananas</p>
+            <p>price 5.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+          <div class="pizza-item" data-category="Pizza" data-item="Peperonni" data-price="5.99">
+            <img src="img/pizza3.jpg" width="200px" height="200px">
+            <p>Peperonni</p>
+            <p>price 5.99</p>
+            <button class="buy-button">Buy</button>
+          </div>
+        </div>
+      </div>
+
     </main>
-  <div class="flowers-main-box">
-    <div class="flowers-box">
-      <div class="flowers-item-1">
-        <img src="img/flower1.jpg" width="200px" height="200px">
-        <p>price 25.99</p>
-        <button id = "buy-flower-1"> buy </button>
-      </div>
-      <div class="flowers-item-2">
-        <img src="img/flower2.jpg" width="200px" height="200px">
-        <p>price 25.99</p>
-        <button id = "buy-flower-2"> buy </button>
-      </div>
-      <div class="flowers-item-3">
-        <img src="img/flower3.jpg" width="200px" height="200px">
-        <p>price 25.99</p>
-        <button id = "buy-flower-3"> buy </button>
-      </div>
+    <div class="basket-box">
+      <button id="clearbasket">Clear Basket</button>
     </div>
 
- 
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
