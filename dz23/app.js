@@ -9,14 +9,36 @@ const pizza = document.querySelector(".pizza-box");
 const clearBasket = document.querySelector("#clearbasket");
 const buy = document.querySelector("#buybtn");
 
+const cart = {};
+
+function eventedPushState(state, title, url) {
+  var pushChangeEvent = new CustomEvent("onpushstate", {
+    detail: {
+      state,
+      title,
+      url,
+    },
+  });
+  document.dispatchEvent(pushChangeEvent);
+  return history.pushState(state, title, url);
+}
+
+document.addEventListener(
+  "onpushstate",
+  function (event) {
+    console.log("from push state", event.detail);
+  },
+  false
+);
+
 basketBtn.addEventListener("click", (e) => {
-  window.location.hash = "/basket";
+  eventedPushState({}, "", "basket");
 });
 myShopBtn.addEventListener("click", (e) => {
-  window.location.hash = "/";
+  eventedPushState({}, "", "/");
 });
 flowersBtn.addEventListener("click", (e) => {
-  window.location.hash = "/flowers";
+  eventedPushState({}, "", "flowers");
   if (flowers.style.visibility === "visible") {
     flowers.style.visibility = "hidden";
   } else {
@@ -43,7 +65,7 @@ pizzaBtn.addEventListener("click", (e) => {
 let basket = [];
 loadBasketFromLocalStorage();
 
-const basketBox = document.querySelector(".basket-box");
+
 
 function saveBasketToLocalStorage() {
   localStorage.setItem("basket", JSON.stringify(basket));
@@ -81,19 +103,15 @@ buyButtons.forEach((button, index) => {
     basket.push(item);
     saveBasketToLocalStorage();
     updateBasketCount();
-    window.location.hash = `/${item.category}/${item.id}`;
+    eventedPushState({}, "", `/${item.category}/${item.id}`) ;
     itemDiv.innerHTML = JSON.stringify(basket);
     window.alert("Товар додано у кошик");
   });
 });
 
-// const basket2 = []
+
 
 const itemDiv = document.createElement("div");
-
-// for(let key in basket) {
-//   basket2.push(key[item,price])
-// }
 
 basketBox.appendChild(itemDiv);
 itemDiv.innerHTML = "Ваші товари";

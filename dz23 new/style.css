@@ -1,0 +1,134 @@
+body,
+ul,
+li,
+nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#myshop {
+  font-size: 24px;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.basket {
+  background-color: #ff6600;
+  border-radius: 5%;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+#basket {
+  text-decoration: none;
+  color: #fff;
+}
+
+main {
+  padding: 20px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  
+}
+
+li {
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  
+  
+}
+
+button {
+  background-color: #ff6600;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+
+#categories {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+span {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+
+button.buy {
+  background-color: #ff6600;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+button.clear {
+  background-color: #333;
+}
+main {
+  display: flex;
+  justify-content: space-between; /* Добавьте это свойство */
+  padding: 20px;
+}
+
+#categories {
+  flex: 1; /* Добавьте это свойство для занимания всей доступной ширины */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.basket-box {
+  display: none;
+  width: 400px;
+  height: 400px;
+  background: #ff6600;
+  
+  align-items: center;
+  justify-content: center;
+}
+.basket-box button {
+  /* display: none; */
+  background: #333;
+}
