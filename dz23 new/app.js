@@ -139,7 +139,7 @@ function loadBasketFromLocalStorage() {
   updateBasketCount();
 
   if (basket.length > 0) {
-    basketBox.innerHTML = ""; // Очищаем содержимое корзины
+    basketBox.innerHTML = ""; 
 
     basket.forEach((product) => {
       const productElement = document.createElement("div");
@@ -148,10 +148,10 @@ function loadBasketFromLocalStorage() {
       basketBox.appendChild(productElement);
     });
 
-    basketBox.appendChild(clearBasketBtn); // Добавляем кнопку "Очистить корзину"
+    basketBox.appendChild(clearBasketBtn); 
   } else {
     basketBox.innerHTML = "Ваш кошик порожній";
-    hideClearButton(); // Скрываем кнопку "Очистить корзину", если корзина пуста
+    hideClearButton(); 
   }
 }
 
@@ -164,7 +164,7 @@ function buyButtonClick(category, productId) {
     basket.push(product);
     saveBasketToLocalStorage();
     updateBasketCount();
-    loadBasketFromLocalStorage(); // Загружаем корзину снова, чтобы отобразить все товары
+    loadBasketFromLocalStorage();
     window.alert("Товар додано у кошик");
     eventedPushState(
       `/${category}/${productId}`,
