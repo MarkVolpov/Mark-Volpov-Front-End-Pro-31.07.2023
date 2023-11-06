@@ -109,12 +109,12 @@ button.clear {
 }
 main {
   display: flex;
-  justify-content: space-between; /* Добавьте это свойство */
+  justify-content: space-between; 
   padding: 20px;
 }
 
 #categories {
-  flex: 1; /* Добавьте это свойство для занимания всей доступной ширины */
+  flex: 1; 
   display: flex;
   flex-wrap: wrap;
 }
