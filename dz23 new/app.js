@@ -200,38 +200,3 @@ document.addEventListener("onpushstate", (e) => {
 });
 
 loadBasketFromLocalStorage();
-
-
-// const navBar = document.querySelector('nav')
-// const basketDiv = document.createElement('div')
-// basketDiv.setAttribute('hidden')
-// basketBtn.addEventListener('click', () => {
-//   basketDiv.removeAttribute('hidden')
-// })
-
-// basketDiv.append(basket)
-
-// const buyButtons = document.querySelectorAll('.buy-button');
-
-// const flowersBuyBtn = document.createElement('button');
-// const CarsBuyBtn = document.createElement('button');
-// const PhonesBuyBtn = document.createElement('button');
-
-// flowersBuyBtn.textContent = 'Buy';
-// CarsBuyBtn.textContent = 'Buy';
-// PhonesBuyBtn.textContent = 'Buy';
-
-// liCar.appendChild(CarsBuyBtn);
-// liFlower.appendChild(flowersBuyBtn);
-// liPhone.appendChild(PhonesBuyBtn);
-// const cartDiv = document.createElement('div');
-// cartDiv.append;
-// const cart = {};
-
-// const buyButtons = document.createElement('button');
-// buyButtons.textContent = 'buy';
-// function deleteCategories() {
-//   if(e.detail.state === "/") {
-//      remove(catSpan)
-//   }
-// }
