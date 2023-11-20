@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="header">
+      <a href="#" id="shop-name" onclick="event.preventDefault()">Магазин</a>
+
+
+      <div class="basket">
+        <a href="#" id="basket">Кошик (0)</a>
+      </div>
+    </header>
+
+
+    <main class="main">
+      <div class="categories">
+        <button id="flowers">Flowers</button>
+        <button id="cars">Cars</button>
+        <button id="pizza">Pizza</button>
+      </div>
+
+
+
+      <div id="product-details" class="hidden">
+        <h2> Item information</h2>
+        <p>Name: <span id="product-name"></span></p>
+        <p>Price: <span id="product-price"></span></p>
+
+        <button id="buy-button" data-category="" data-id="">Buy</button>
+      </div>
+    </main>
+   
+
+    <script src="app.js"></script>
+</body>
+
+</html>

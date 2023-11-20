@@ -1,18 +1,5 @@
-const basketBtn = document.querySelector("#basket");
-const myShopBtn = document.querySelector("#my-shop");
-const flowersBtn = document.querySelector("#flowers");
-const carsBtn = document.querySelector("#cars");
-const pizzaBtn = document.querySelector("#pizza");
-const flowers = document.querySelector(".flowers-box");
-const cars = document.querySelector(".cars-box");
-const pizza = document.querySelector(".pizza-box");
-const clearBasket = document.querySelector("#clearbasket");
-const buy = document.querySelector("#buybtn");
-
-const cart = {};
-
-function eventedPushState(state, title, url) {
-  var pushChangeEvent = new CustomEvent("onpushstate", {
+const eventedPushState = (state, title, url) => {
+  const pushChangeEvent = new CustomEvent("onpushstate", {
     detail: {
       state,
       title,
@@ -21,101 +8,210 @@ function eventedPushState(state, title, url) {
   });
   document.dispatchEvent(pushChangeEvent);
   return history.pushState(state, title, url);
-}
+};
 
-document.addEventListener(
-  "onpushstate",
-  function (event) {
-    console.log("from push state", event.detail);
+const buttonCar = document.createElement("a");
+const buttonFlower = document.createElement("a");
+const buttonPhone = document.createElement("a");
+
+buttonCar.textContent = "Go to Cars category";
+buttonFlower.textContent = "Go to Flowers category";
+buttonPhone.textContent = "Go to Phones category";
+
+const liCar = document.createElement("li");
+const liFlower = document.createElement("li");
+const liPhone = document.createElement("li");
+
+liCar.appendChild(buttonCar);
+liFlower.appendChild(buttonFlower);
+liPhone.appendChild(buttonPhone);
+
+const ulList = document.createElement("ul");
+ulList.appendChild(liCar);
+ulList.appendChild(liFlower);
+ulList.appendChild(liPhone);
+
+document.body.appendChild(ulList);
+
+const categories = document.querySelector("#categories");
+const myShop = document.getElementById("myshop");
+const basketBtn = document.querySelector("#basket");
+const mainBody = document.querySelector("main");
+const basketBox = document.querySelector(".basket-box");
+const clearBasketBtn = document.createElement("button");
+const navBar = document.querySelector('nav')
+
+navBar.appendChild(clearBasketBtn)
+clearBasketBtn.innerText = "Очистити кошик";
+clearBasketBtn.addEventListener("click", () => {
+  LocalStorageClear();
+  basketBox.innerHTML = "Ваш кошик порожній";
+});
+
+const Category = {
+  Flowers: "flowers",
+  Cars: "cars",
+  Phones: "phones",
+};
+
+const products = [
+  {
+    id: 1,
+    Category: Category.Flowers,
+    name: "Rose",
+    price: 100,
   },
-  false
-);
+  {
+    id: 2,
+    Category: Category.Flowers,
+    name: "Lotos",
+    price: 100,
+  },
+  {
+    id: 1,
+    Category: Category.Cars,
+    name: "Shkoda",
+    price: 1000,
+  },
+  {
+    id: 2,
+    Category: Category.Cars,
+    name: "Mazda",
+    price: 1000,
+  },
+  {
+    id: 1,
+    Category: Category.Phones,
+    name: "Iphone",
+    price: 500,
+  },
+  {
+    id: 2,
+    Category: Category.Phones,
+    name: "Xiaomi",
+    price: 500,
+  },
+];
 
-basketBtn.addEventListener("click", (e) => {
-  eventedPushState({}, "", "basket");
+buttonFlower.addEventListener("click", () => {
+  eventedPushState(Category.Flowers, "", "/flowers");
 });
-myShopBtn.addEventListener("click", (e) => {
-  eventedPushState({}, "", "/");
+
+buttonCar.addEventListener("click", () => {
+  eventedPushState(Category.Cars, "", "/cars");
 });
-flowersBtn.addEventListener("click", (e) => {
-  eventedPushState({}, "", "flowers");
-  if (flowers.style.visibility === "visible") {
-    flowers.style.visibility = "hidden";
-  } else {
-    flowers.style.visibility = "visible";
-  }
+
+buttonPhone.addEventListener("click", () => {
+  eventedPushState(Category.Phones, "", "/phones");
 });
-carsBtn.addEventListener("click", (e) => {
-  window.location.hash = "/cars";
-  if (cars.style.visibility === "visible") {
-    cars.style.visibility = "hidden";
-  } else {
-    cars.style.visibility = "visible";
-  }
+
+myShop.addEventListener("click", () => {
+  eventedPushState("/", "", "/");
+  basketBox.style.display = "none"
 });
-pizzaBtn.addEventListener("click", (e) => {
-  window.location.hash = "/pizza";
-  if (pizza.style.visibility === "visible") {
-    pizza.style.visibility = "hidden";
-  } else {
-    pizza.style.visibility = "visible";
-  }
+basketBtn.addEventListener("click", () => {
+  eventedPushState("Basket", "", "basket");
+  basketBox.style.display = "flex"
 });
 
 let basket = [];
-loadBasketFromLocalStorage();
-
-
 
 function saveBasketToLocalStorage() {
   localStorage.setItem("basket", JSON.stringify(basket));
 }
 
-function loadBasketFromLocalStorage() {
-  const savedBasket = localStorage.getItem("basket");
-  if (savedBasket) {
-    basket = JSON.parse(savedBasket);
-    updateBasketCount();
-  }
-}
-
 function updateBasketCount() {
-  basketBtn.innerHTML = `Basket(${basket.length})`;
+  basketBtn.innerHTML = `Кошик(${basket.length})`;
 }
 
 function LocalStorageClear() {
   localStorage.clear(basket);
   basket = [];
-  basketBtn.innerHTML = "Basket(0)";
-  itemDiv.innerHTML = "Ваші товари";
+  basketBtn.innerHTML = "Кошик(0)";
 }
 
-const buyButtons = document.querySelectorAll(".buy-button");
 
-buyButtons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    const item = {
-      category: button.parentElement.getAttribute("data-category"),
-      item: button.parentElement.getAttribute("data-item"),
-      price: parseFloat(button.parentElement.getAttribute("data-price")),
-      id: index + 1,
-    };
-    basket.push(item);
+function loadBasketFromLocalStorage() {
+  const savedBasket = localStorage.getItem("basket");
+  if (savedBasket) {
+    basket = JSON.parse(savedBasket);
+  }
+  updateBasketCount();
+
+  if (basket.length > 0) {
+    basketBox.innerHTML = ""; 
+
+    basket.forEach((product) => {
+      const productElement = document.createElement("div");
+      productElement.textContent = `${product.name}, Price: ${product.price}`
+      ;
+      basketBox.appendChild(productElement);
+    });
+
+    basketBox.appendChild(clearBasketBtn); 
+  } else {
+    basketBox.innerHTML = "Ваш кошик порожній";
+    hideClearButton(); 
+  }
+}
+
+function buyButtonClick(category, productId) {
+  const product = products.find(
+    (p) => p.id === productId && p.Category === category
+  );
+
+  if (product) {
+    basket.push(product);
     saveBasketToLocalStorage();
     updateBasketCount();
-    eventedPushState({}, "", `/${item.category}/${item.id}`) ;
-    itemDiv.innerHTML = JSON.stringify(basket);
+    loadBasketFromLocalStorage();
     window.alert("Товар додано у кошик");
-  });
+    eventedPushState(
+      `/${category}/${productId}`,
+      "",
+      `/${category}/${productId}`
+    );
+  }
+}
+
+document.addEventListener("onpushstate", (e) => {
+  categories.innerHTML = ""; 
+
+  if (e.detail.state === "/") {
+    categories.innerHTML = "";
+  } else {
+    const selectedCategory = e.detail.state;
+    const filteredProducts = products.filter(
+      (product) => product.Category === selectedCategory
+    );
+
+    filteredProducts.forEach((product) => {
+      const categoryItem = document.createElement("span");
+      categoryItem.innerText = `${product.name}, Price: ${product.price}`;
+      const buyButton = document.createElement("button");
+      buyButton.textContent = "Buy";
+      buyButton.addEventListener("click", () => {
+        buyButtonClick(selectedCategory, product.id);
+      });
+      categoryItem.appendChild(buyButton);
+      categories.appendChild(categoryItem);
+    });
+  }
 });
+function fetchData() {
+  const apiUrl = '/api/data';
 
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+    console.log(data);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}
 
-
-const itemDiv = document.createElement("div");
-
-basketBox.appendChild(itemDiv);
-itemDiv.innerHTML = "Ваші товари";
-
-clearBasket.addEventListener("click", (e) => {
-  LocalStorageClear();
+document.addEventListener('DOMContentLoaded', () => {
+  fetchData();
 });
+loadBasketFromLocalStorage();
