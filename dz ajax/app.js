@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     let apiKey = "5d066958a60d315387d9492393935c19";
     let city = "LVIV";
     let apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + apiKey;
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            let weatherData = JSON.parse(xhr.responseText);
+            const weatherData = JSON.parse(xhr.responseText);
             displayWeather(weatherData);
         }
     };
@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("windSpeed").innerText = data.wind.speed;
         document.getElementById("windDirection").innerText = data.wind.deg;
 
-        let iconCode = data.weather[0].icon;
-        let iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        const iconCode = data.weather[0].icon;
+        const iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
         document.getElementById("weatherIcon").src = iconUrl;
     }
 });
