@@ -1,101 +1,113 @@
-import { useState } from "react";
-import "./App.css";
-import Form from "./components/Form/Form";
+import React, { Component } from 'react';
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [allTodos, setAllTodos] = useState(0);
-  const [allComplete, setAllComplete] = useState(0);
-  const [showCompleted, setShowCompleted] = useState(false);
+class TodoApp extends Component {
+  constructor(props) {
+    super(props);
 
-  const putTodo = (value) => {
-    if (value) {
-      setTodos([...todos, { id: Date.now(), text: value, done: false }]);
-      setAllTodos(allTodos + 1);
-    } else {
-      alert("Type text");
-    }
+    this.state = {
+      todos: [],
+      newTodo: '',
+    };
+  }
+
+  handleInputChange = (event) => {
+    this.setState({ newTodo: event.target.value });
   };
 
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id !== id) return todo;
+  handleAddTodo = () => {
+    if (this.state.newTodo.trim() === '') {
+      return;
+    }
+  
+    this.setState((prevState) => ({
+      todos: [
+        ...prevState.todos,
+        { text: prevState.newTodo, completed: false, color: 'white' },
+      ],
+      newTodo: '',
+    }));
+  };
 
-        const updatedTodo = {
-          ...todo,
-          done: !todo.done,
+  handleToggleTodo = (index) => {
+    this.setState((prevState) => {
+      const updatedTodos = [...prevState.todos];
+  
+      if (updatedTodos[index] && typeof updatedTodos[index].color !== 'undefined') {
+        const currentColor = updatedTodos[index].color;
+  
+        updatedTodos[index] = {
+          ...updatedTodos[index],
+          completed: !updatedTodos[index].completed,
+          color: currentColor === 'white' ? 'lightgreen' : 'white',
         };
-
-        if (updatedTodo.done) {
-          setAllComplete(allComplete + 1);
-        } else {
-          setAllComplete(allComplete - 1);
-        }
-
-        return updatedTodo;
-      })
-    );
+      }
+  
+      return { todos: updatedTodos };
+    });
   };
 
-  const removeTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-    setAllTodos(allTodos - 1);
-    const deletedTodo = todos.find((todo) => todo.id === id);
-    if (deletedTodo && deletedTodo.done) {
-      setAllComplete(allComplete - 1);
-    }
+  handleDeleteTodo = (index) => {
+    this.setState((prevState) => {
+      const updatedTodos = [...prevState.todos];
+      updatedTodos.splice(index, 1);
+      return { todos: updatedTodos };
+    });
   };
 
-  const clearTodos = () => {
-    setTodos([]);
-    setAllTodos(0);
-    setAllComplete(0);
-  };
-
-  return (
-    <div className="wrapper">
-      <div className="container">
-        <h1 className="title">TodoList</h1>
-        <Form putTodo={putTodo} />
-        <ul className="todos">
-          {todos
-            .filter((todo) => (showCompleted ? todo.done : !todo.done))
-            .map((todo) => (
-              <li
-                className={todo.done ? "todo done" : "todo"}
-                key={todo.id}
-                onClick={() => toggleTodo(todo.id)}
+  render() {
+    return (
+      <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '400px', margin: 'auto' }}>
+        <h1>Todo App</h1>
+        <ul style={{ listStyleType: 'none', padding: 0 }}>
+          {this.state.todos.map((todo, index) => (
+            <li
+              key={index}
+              style={{
+                textDecoration: todo.completed ? 'line-through' : 'none',
+                cursor: 'pointer',
+                marginBottom: '8px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                backgroundColor: todo.color,
+              }}
+              onClick={() => {
+                this.handleToggleTodo(index);
+              }}
+            >
+              <span>{todo.text}</span>
+              <span
+                onClick={() => this.handleDeleteTodo(index)}
+                style={{
+                  color: 'red',
+                  fontWeight: 'bold',
+                  marginLeft: '8px',
+                  cursor: 'pointer',
+                }}
               >
-                {todo.text}
-                <img
-                  src="./remove.png"
-                  alt="delete"
-                  className="delete"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeTodo(todo.id);
-                  }}
-                />
-              </li>
-            ))}
-          <div className="info">
-            <span>All todos: {allTodos}</span>
-            <span>Complete: {allComplete}</span>
-          </div>
-          <button className="btn" onClick={clearTodos}>
-            Очистить все
-          </button>
-          <button
-            className="btn"
-            onClick={() => setShowCompleted(!showCompleted)}
-          >
-            {showCompleted ? "Hide completed" : "Show completed"}
-          </button>
+                X
+              </span>
+            </li>
+          ))}
         </ul>
+
+        <div style={{ marginTop: '16px' }}>
+          <input
+            type="text"
+            value={this.state.newTodo}
+            onChange={this.handleInputChange}
+            style={{ marginRight: '8px', padding: '4px' }}
+          />
+          <button
+            onClick={this.handleAddTodo}
+            style={{ padding: '4px 8px', cursor: 'pointer' }}
+          >
+            Add Todo
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default App;
+export default TodoApp;
